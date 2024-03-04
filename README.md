@@ -11,6 +11,8 @@
 
 johnlib is an "api" for johnvertisments that allows for more johnvertisment customizability.
 
+note: johnlib requires PHP DOM. it can be installed wtih `apt install php8.X-xml`. it is included by default on windows, but must be enabled in your php.ini.
+
 usage:
 ```
 // Create the psychic link to john
@@ -19,4 +21,20 @@ $john = new johnlib();
 
 // Summon a new johnvertisment from the all-powerful john himself
 echo $john->generateJohn("example.com");
+```
+to get the raw john data, use the `getJohn` function instead:
+```
+print_r($john->getJohn("example.com"));
+// Array 
+// (
+//     [image] => "https://john.citrons.xyz/static/abc/xyz"
+//     [url] => "http://example.com"
+// )
+```
+here is an example for using the `getJohn` output:
+```
+$johnData = $john->getJohn("example.com");
+
+echo "<p> John URL is: " . $johnData["url"] . "</p>";
+echo "<img src='" . $johnData["image"] . "' alt='johnvertisment'>";
 ```
