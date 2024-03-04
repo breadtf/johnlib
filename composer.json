@@ -1,0 +1,16 @@
+{
+    "name": "breadtf/johnlib",
+    "description": "johnvertisment php library",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Breadtf\\Johnlib\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bread"
+        }
+    ],
+    "require": {}
+}

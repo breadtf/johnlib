@@ -1,10 +1,12 @@
 <?php
 
+namespace breadtf\johnlib;
+
 class johnlib {
 
-    const version = "1.0.0";
+    const version = "1.0.1";
 
-    function johnParse($johnContent){
+    private function johnParse($johnContent){
         $dom = new DOMDocument();
         $dom->loadHTML($johnContent, LIBXML_NOERROR);
         $john = $dom->getElementsByTagName('img');
@@ -14,7 +16,7 @@ class johnlib {
         return $firstjohn->getAttribute('src');
     }
 
-    function getJohnURL($johnContent){
+    private function getJohnURL($johnContent){
         $dom = new DOMDocument();
         $dom->loadHTML($johnContent, LIBXML_NOERROR);
         $john = $dom->getElementsByTagName('a');
@@ -24,7 +26,7 @@ class johnlib {
         return $firstjohn->getAttribute('href');
     }
 
-    function getJohn($domain){
+    public function getJohn($domain){
         $johnURL = 'https://john.citrons.xyz/embed?ref=' . $domain;
         $john = file_get_contents($johnURL);
         $johnData = [
@@ -34,7 +36,7 @@ class johnlib {
         return $johnData;
     }   
 
-    function generateJohn($domain){
+    public function generateJohn($domain){
         $johnData = $this->getJohn($domain);
         return "<a href='" . $johnData["url"] . "'><img src='" . $johnData["image"] . "' alt='johnvertisement'></a>";
     }
