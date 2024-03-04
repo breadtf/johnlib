@@ -14,7 +14,7 @@ johnlib is an "api" for johnvertisments that allows for more johnvertisment cust
 note: johnlib requires PHP DOM. it can be installed wtih `apt install php8.X-xml`. it is included by default on windows, but must be enabled in your php.ini.
 
 installation:
-run `composer require breadtf/johnlib` to install johnlib.
+run `composer require breadtf/johnlib` to install johnlib. you can also directly download `johnlib.php` and manually `require_once` it into your project
 
 usage:
 ```
